@@ -109,7 +109,7 @@ class TweetDfExtractor:
             if words[0]=="#":
                 hashtags.append(words)
         return hashtags
-        
+        # to count directly from full_text
 
     def find_mentions(self)->list:
         mentions = []
