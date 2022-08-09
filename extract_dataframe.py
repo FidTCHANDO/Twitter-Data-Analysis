@@ -36,7 +36,9 @@ class TweetDfExtractor:
 
     # an example function
     def find_statuses_count(self)->list:
-        statuses_count = len(self)
+        statuses_count = []
+        for i in range(len(self)):
+            statuses_count.append(self.tweets_list[i]["user"]["statuses_count"])
         return statuses_count
         
     def find_full_text(self)->list:
@@ -67,19 +69,19 @@ class TweetDfExtractor:
     def find_screen_name(self)->list:
         screen_name = []
         for i in range(len(self)):
-            screen_name.append(self.tweets_list[i]["screen_name"])
+            screen_name.append(self.tweets_list[i]["user"]["screen_name"])
         return screen_name
 
     def find_followers_count(self)->list:
         followers_count = []
         for i in range(len(self)):
-            followers_count.append(self.tweets_list[i]["followers_count"])
+            followers_count.append(self.tweets_list[i]["user"]["followers_count"])
         return followers_count
 
     def find_friends_count(self)->list:
         friends_count = []
         for i in range(len(self)):
-            friends_count.append(self.tweets_list[i]["friends_count"])
+            friends_count.append(self.tweets_list[i]["user"]["friends_count"])
         return friends_count
 
     def is_sensitive(self)->list:
@@ -93,7 +95,7 @@ class TweetDfExtractor:
     def find_favourite_count(self)->list:
         favourite_count = []
         for i in range(len(self)):
-            favourite_count.append(self.tweets_list[i]["favourite_count"])
+            favourite_count.append(self.tweets_list[i]["user"]["favorite_count"])
         return favourite_count
 
     
@@ -114,13 +116,13 @@ class TweetDfExtractor:
     def find_mentions(self)->list:
         mentions = []
         for i in range(len(self)):
-            mentions.append(self.tweets_list[i]["user_mentions"])
+            mentions.append(self.tweets_list[i]["entities"]["user_mentions"])
         return mentions
 
     def find_location(self)->list:
         location = []
         for i in range(len(self)):
-            location.append(self.tweets_list[i]['location'])
+            location.append(self.tweets_list[i]['user']['location'])
         return location
 
                             
