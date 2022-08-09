@@ -1,7 +1,12 @@
+# Import the libraries
+import numpy as np
 import pandas as pd
+
 class Clean_Tweets:
     """
-    The PEP8 Standard AMAZING!!!
+    Description:
+    ------------
+    This module helps to clean the data from Twitter.
     """
     def __init__(self, df:pd.DataFrame):
         self.df = df
@@ -10,7 +15,7 @@ class Clean_Tweets:
     def drop_unwanted_column(self, df:pd.DataFrame)->pd.DataFrame:
         """
         remove rows that has column names. This error originated from
-        the data collection stage.  
+        the data collection stage.
         """
         unwanted_rows = df[df['retweet_count'] == 'retweet_count' ].index
         df.drop(unwanted_rows , inplace=True)
@@ -21,15 +26,20 @@ class Clean_Tweets:
         """
         drop duplicate rows
         """
-        df = df.remove_duplicate()
+        
+        ---
         
         return df
     def convert_to_datetime(self, df:pd.DataFrame)->pd.DataFrame:
         """
         convert column to datetime
         """
-        df['created_at'] = pd.to_datatime(df["created_at"])
-                
+        ----
+        
+        ----
+        
+        df = df[df['created_at'] >= '2020-12-31' ]
+        
         return df
     
     def convert_to_numbers(self, df:pd.DataFrame)->pd.DataFrame:
@@ -37,10 +47,10 @@ class Clean_Tweets:
         convert columns like polarity, subjectivity, retweet_count
         favorite_count etc to numbers
         """
-        df['polarity'] = pd.to_numeric(df['polarity'])
-        df['subjectivity'] = pd.to_numeric(df['subjectivity'])
-        df['retweet_count'] = pd.to_numeric(df['retweet_count'])
-        df['favorite_count'] = pd.to_numeric(df['favorite_count'])
+        df['polarity'] = pd.----
+        
+        ----
+        ----
         
         return df
     
@@ -49,6 +59,6 @@ class Clean_Tweets:
         remove non english tweets from lang
         """
         
-        df = df.loc[df["lang"] == "en"]
+        df = ----
         
         return df
