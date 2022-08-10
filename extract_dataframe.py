@@ -37,13 +37,13 @@ class TweetDfExtractor:
     # an example function
     def find_statuses_count(self)->list:
         statuses_count = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             statuses_count.append(self.tweets_list[i]["user"]["statuses_count"])
         return statuses_count
         
     def find_full_text(self)->list:
         text = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             text.append(self.tweets_list[i]["full_text"])
         return text
     
@@ -56,31 +56,31 @@ class TweetDfExtractor:
 
     def find_created_time(self)->list:
         created_at = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             created_at.append(self.tweets_list[i]["created_at"])
         return created_at
 
     def find_source(self)->list:
         source = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             source.append(self.tweets_list[i]["source"])
         return source
 
     def find_screen_name(self)->list:
         screen_name = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             screen_name.append(self.tweets_list[i]["user"]["screen_name"])
         return screen_name
 
     def find_followers_count(self)->list:
         followers_count = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             followers_count.append(self.tweets_list[i]["user"]["followers_count"])
         return followers_count
 
     def find_friends_count(self)->list:
         friends_count = []
-        for i in range(len(self)):
+        for i in range(len(self.tweets_list)):
             friends_count.append(self.tweets_list[i]["user"]["friends_count"])
         return friends_count
 
